@@ -1,4 +1,4 @@
-PACKAGE_NAME?=	redborder-puppeteer
+PACKAGE_NAME?=	puppeteer-rpm
 
 #VERSION?=	$(shell git describe --tags --long | sed 's/-/_/g')
 VERSION?=	$(shell git describe --abbrev=6 --tags HEAD --always | sed 's/-/_/g')
@@ -22,7 +22,6 @@ archive: SOURCES
 build_prepare: archive
 	mkdir -p $(RESULT_DIR)
 	rm -f $(RESULT_DIR)/$(PACKAGE_NAME)*.rpm
-	cp chromium-126.0.6478.126-1.fc41.x86_64.rpm SOURCES/
 
 srpm: build_prepare
 	/usr/bin/mock \

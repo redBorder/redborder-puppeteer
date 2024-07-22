@@ -1,8 +1,8 @@
-# redBorder puppeteer
+# Puppeteer RPM
 
 ## Overview
 
-RPM to install Puppeteer-core and Chromium at RedBorder
+Puppeteer RPM
 
 ## Authors
 
