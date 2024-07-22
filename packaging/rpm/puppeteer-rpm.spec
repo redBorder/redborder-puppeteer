@@ -1,7 +1,6 @@
 Name:    puppeteer-rpm
 Version: %{__version}
 Release: %{__release}%{?dist}
-BuildArch: x86_64
 Summary: Puppeteer Core
 
 License: MIT and BSD
@@ -35,5 +34,7 @@ rm -rf %{buildroot}
 /var/www/rb-rails/node_modules/puppeteer-rpm
 
 %changelog
+* Tue Jul 22 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.1-1
+- Changed Puppeteer Core to Puppeteer, renamed RPM and got rid of Chromium RPM
 * Tue Jul 09 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.0-1
 - first spec version
