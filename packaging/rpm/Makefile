@@ -9,6 +9,10 @@ MOCK_CONFIG?=default
 
 RESULT_DIR?=pkgs
 
+PUPPETEER_VERSION?= 19.5.2
+
+CHROMIUM_REVISION?= 1069273
+
 all: rpm
 
 SOURCES:
@@ -22,12 +26,16 @@ archive: SOURCES
 build_prepare: archive
 	mkdir -p $(RESULT_DIR)
 	rm -f $(RESULT_DIR)/$(PACKAGE_NAME)*.rpm
+	env PUPPETEER_VERSION=$(PUPPETEER_VERSION) CHROMIUM_REVISION=$(CHROMIUM_REVISION) 
+	./download_modules.sh
 
 srpm: build_prepare
 	/usr/bin/mock \
 		-r $(MOCK_CONFIG) \
 		--define "__version $(VERSION)" \
 		--define "__release $(BUILD_NUMBER)" \
+		--define "__puppeteerversion $(PUPPETEER_VERSION)" \
+		--define "__chromiumrevision $(CHROMIUM_REVISION)" \
 		--resultdir=$(RESULT_DIR) \
 		--buildsrpm \
 		--spec=${PACKAGE_NAME}.spec \
@@ -39,6 +47,8 @@ rpm: srpm
 		-r $(MOCK_CONFIG) \
 		--define "__version $(VERSION)"\
 		--define "__release $(BUILD_NUMBER)"\
+		--define "__puppeteerversion $(PUPPETEER_VERSION)" \
+		--define "__chromiumrevision $(CHROMIUM_REVISION)" \
 		--resultdir=$(RESULT_DIR) \
 		--rebuild $(RESULT_DIR)/$(PACKAGE_NAME)*.src.rpm
 	@echo "======= Binary RPMs now available in $(RESULT_DIR) ======="
