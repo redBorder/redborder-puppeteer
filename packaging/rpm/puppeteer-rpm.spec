@@ -49,6 +49,8 @@ rm -rf %{buildroot}
 /var/www/rb-rails/package-lock.json
 
 %changelog
+* Thu Agu 1 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.5-1
+- Create script to install Puppeteer and Chromium
 * Wed Jul 31 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.4-1
 - Remove hardcoded versions to facilitate reproducibility
 * Tue Jul 26 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.3-1
