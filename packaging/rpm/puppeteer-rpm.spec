@@ -44,12 +44,12 @@ rm -rf %{buildroot}
 %files
 %defattr(-,webui,webui)
 /var/www/rb-rails/node_modules/
-/var/www/rb-rails/.cache/puppeteer
+/var/www/rb-rails/.cache/puppeteer/
 /var/www/rb-rails/package.json
 /var/www/rb-rails/package-lock.json
 
 %changelog
-* Thu Agu 1 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.5-1
+* Thu Aug 1 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.5-1
 - Create script to install Puppeteer and Chromium
 * Wed Jul 31 2024 Daniel C. Cruz <dcastro@redborder.com> - 1.4-1
 - Remove hardcoded versions to facilitate reproducibility
